@@ -3,6 +3,15 @@ import { Replacer } from '../models';
 
 export function init() {
     const images = document.querySelectorAll('[data-replace]');
+    let replacerList: Replacer[] = createReplacerList(images);
+
+    bind(replacerList);
+    replacerList.forEach((replacer) => {
+        replacer.replaceCheck();
+    });
+};
+
+export function createReplacerList(images: any): Replacer[] {
     let replacerList: Replacer[] = [];
 
     images.forEach((element: any) => {
@@ -22,10 +31,16 @@ export function init() {
             );
         });
     });
+    return replacerList;
+}
 
-    BREAKPOINT_LIST.forEach(function (breakpoint) {
-        window.matchMedia(breakpoint.query).addEventListener('change', function (event) {
-            replacerList.forEach(function (replacer) {
+// eventReset
+
+// bind
+export function bind(replacerList: Replacer[]) {
+    BREAKPOINT_LIST.forEach((breakpoint) => {
+        window.matchMedia(breakpoint.query).addEventListener('change', (event) => {
+            replacerList.forEach((replacer) => {
                 replacer.callback(event);
             });
         });
@@ -33,9 +48,4 @@ export function init() {
             state.deviceType = breakpoint.deviceType;
         }
     });
-
-    replacerList.forEach(function (a) {
-        a.replaceCheck();
-    });
-}
-
+};
