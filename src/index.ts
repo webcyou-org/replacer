@@ -1,1 +1,1 @@
-export default class DummyClass {}
+export * from './lib/api'
