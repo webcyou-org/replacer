@@ -7,12 +7,13 @@ import { Replacer, state } from '../models'
 export function bind(replacerList: Replacer[]) {
     BREAKPOINT_LIST.forEach(breakpoint => {
         window.matchMedia(breakpoint.query).addEventListener('change', event => {
-            replacerList.forEach(replacer => {
-                replacer.callback(event)
-            })
+            if (event.matches) {
+                replacerList.forEach(replacer => {
+                    replacer.matchMediaCallback(event)
+                })
+            }
         })
-        if (window.matchMedia(breakpoint.query).matches) {
-            state.deviceType = breakpoint.deviceType
-        }
+        // init
+        state.check(breakpoint);
     })
 }

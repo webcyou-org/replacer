@@ -1,5 +1,4 @@
 import { Replacer } from '../models'
-import { replaceImagePath } from '../utils'
 
 export function createReplacerList(images: any): Replacer[] {
     let replacerList: Replacer[] = []
@@ -8,18 +7,13 @@ export function createReplacerList(images: any): Replacer[] {
         const elementSrc = element.src
         const replaceDataList = JSON.parse(element.dataset['replace'])
 
-        replaceDataList.forEach((replaceData: any) => {
-            const replaceSrc = replaceImagePath(elementSrc, replaceData.suffix)
-            replacerList.push(
-                new Replacer({
-                    type: replaceData.type,
-                    query: replaceData.query,
-                    originSrc: elementSrc,
-                    changeSrc: replaceSrc,
-                    node: element
-                })
-            )
-        })
+        replacerList.push(
+            new Replacer({
+                originSrc: elementSrc,
+                node: element,
+                replaceTargetList: replaceDataList
+            })
+        )
     })
     return replacerList
 }
