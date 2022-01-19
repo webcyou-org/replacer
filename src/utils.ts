@@ -22,3 +22,5 @@ export function replaceImagePath(src: any, suffix: string) {
 
     return src.replace(filename + '.' + extend, filename + suffix + '.' + extend)
 }
+
+
