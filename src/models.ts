@@ -1,39 +1,44 @@
-import { BREAKPOINT_LIST, state } from './utils';
+import { BREAKPOINT_LIST } from './utils'
+
+export let state = {
+    deviceType: 'pc',
+    breakpointList: BREAKPOINT_LIST
+}
 
 export class Replacer {
-    type?: string;
-    query?: string;
-    originSrc: string;
-    changeSrc: string;
-    node: any;
+    type?: string
+    query?: string
+    originSrc: string
+    changeSrc: string
+    node: any
 
     constructor(data: any) {
-        this.type = data.type ? data.type : '';
-        this.query = data.query ? data.query : '';
-        this.originSrc = data.originSrc;
-        this.changeSrc = data.changeSrc;
-        this.node = data.node;
+        this.type = data.type ? data.type : ''
+        this.query = data.query ? data.query : ''
+        this.originSrc = data.originSrc
+        this.changeSrc = data.changeSrc
+        this.node = data.node
     }
 
     callback(event: any) {
         if (event.matches) {
-            BREAKPOINT_LIST.forEach((breakpoint) => {
+            BREAKPOINT_LIST.forEach(breakpoint => {
                 if (event.media === breakpoint.query) {
-                    state.deviceType = breakpoint.deviceType;
+                    state.deviceType = breakpoint.deviceType
                     if (this.type === state.deviceType) {
                         // todo: check
-                        this.node.src = this.changeSrc;
+                        this.node.src = this.changeSrc
                     }
                 }
-            });
+            })
         } else {
-            this.node.src = this.originSrc;
+            this.node.src = this.originSrc
         }
     }
 
     replaceCheck() {
         if (this.type === state.deviceType) {
-            this.node.src = this.changeSrc;
+            this.node.src = this.changeSrc
         }
     }
 }

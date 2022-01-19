@@ -1,5 +1,5 @@
-import { BREAKPOINT_LIST, replaceImagePath, state } from '../utils'
-import { Replacer } from '../models'
+import { BREAKPOINT_LIST, replaceImagePath } from '../utils'
+import { Replacer, state } from '../models'
 
 export function init() {
     const images = document.querySelectorAll('[data-replace]')
