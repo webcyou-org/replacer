@@ -1,9 +1,5 @@
-import { BREAKPOINT_LIST } from './utils'
-
-export let state = {
-    deviceType: 'pc',
-    breakpointList: BREAKPOINT_LIST
-}
+import { BREAKPOINT_LIST } from '../utils'
+import { state } from './state'
 
 export class Replacer {
     type?: string
