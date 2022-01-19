@@ -1,19 +1,18 @@
-import { BREAKPOINT_LIST } from '../utils'
 import { Replacer, state } from '../models'
 
 // eventReset
 
 // bind
 export function bind(replacerList: Replacer[]) {
-    BREAKPOINT_LIST.forEach(breakpoint => {
+    state.breakpointList.forEach(breakpoint => {
         window.matchMedia(breakpoint.query).addEventListener('change', event => {
             if (event.matches) {
                 replacerList.forEach(replacer => {
-                    replacer.matchMediaCallback(event)
+                    replacer.matchMediaCallback()
                 })
             }
         })
-        // init
-        state.check(breakpoint);
     })
+    // init
+    state.check();
 }

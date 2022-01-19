@@ -1,4 +1,4 @@
-import { BREAKPOINT_LIST, replaceImagePath } from '../utils'
+import { replaceImagePath } from '../utils'
 import { state } from './state'
 import { ReplaceTarget } from './ReplaceTarget'
 export class Replacer {
@@ -18,19 +18,15 @@ export class Replacer {
         });
     }
 
-    matchMediaCallback(event: any) {
+    matchMediaCallback(): void {
         let isChange = false;
+        state.check();
 
-        BREAKPOINT_LIST.forEach(breakpoint => {
-            if (event.media === breakpoint.query) {
-                state.deviceType = breakpoint.deviceType
-                this.replaceTargetList.forEach((replaceTarget: ReplaceTarget) => {
-                    if (replaceTarget.type === state.deviceType && !isChange) {
-                        // todo: check
-                        this.node.src = replaceTarget.changeSrc
-                        isChange = true
-                    }
-                })
+        this.replaceTargetList.forEach((replaceTarget: ReplaceTarget) => {
+            if (replaceTarget.type === state.deviceType && !isChange) {
+                // todo: check
+                this.node.src = replaceTarget.changeSrc
+                isChange = true
             }
         })
 
