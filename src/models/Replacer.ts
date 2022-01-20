@@ -19,7 +19,7 @@ export class Replacer {
     }
 
     matchMediaCallback(): void {
-        let isChange = false;
+        let isChange: boolean = false;
         state.check();
 
         this.replaceTargetList.forEach((replaceTarget: ReplaceTarget) => {
@@ -35,7 +35,7 @@ export class Replacer {
         }
     }
 
-    replaceCheck() {
+    replaceCheck(): void {
         this.replaceTargetList.forEach((replaceTarget: ReplaceTarget) => {
             if (replaceTarget.type === state.deviceType) {
                 this.node.src = replaceTarget.changeSrc

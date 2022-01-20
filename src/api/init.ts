@@ -3,7 +3,7 @@ import { createReplacerList } from '../core'
 import { bind } from './bind'
 
 export function init() {
-    const images = document.querySelectorAll('[data-replace]')
+    const images: NodeListOf<HTMLImageElement> = document.querySelectorAll('[data-replace]')
     let replacerList: Replacer[] = createReplacerList(images)
 
     bind(replacerList)
