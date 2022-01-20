@@ -4,7 +4,7 @@
     "description": "",
     "keywords": [],
     "main": "dist/replacer.umd.js",
-    "module": "dist/replacer.es5.js",
+    "module": "dist/replacer.es.js",
     "typings": "dist/types/replacer.d.ts",
     "files": [
         "dist"
