@@ -1,6 +1,7 @@
 import { replaceImagePath } from '../utils'
 import { state } from './state'
 import { ReplaceTarget } from './ReplaceTarget'
+
 export class Replacer {
     originSrc: string
     node: any

@@ -4,7 +4,8 @@ export function createReplacerList(images: NodeListOf<HTMLImageElement>): Replac
     let replacerList: Replacer[] = []
 
     images.forEach((element: HTMLImageElement) => {
-        const replaceDataList = JSON.parse(element.dataset['replace'] as string)
+        let replaceDataList = JSON.parse(element.dataset['replace'] as string)
+        replaceDataList = Array.isArray(replaceDataList) ? replaceDataList : [replaceDataList]
 
         replacerList.push(
             new Replacer({

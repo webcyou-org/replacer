@@ -15,6 +15,12 @@
 ```
 
 ```
+<img data-replace='{"type":"tab","suffix":"_tab"}' src="imgpath/cat.png"  />
+```
+
+### Multiple changes
+
+```
 <img data-replace='[{"type":"tab","suffix":"_tab"}, {"type":"sp","suffix":"_tab"}]' src="imgpath/cat.png"  />
 ```
 
