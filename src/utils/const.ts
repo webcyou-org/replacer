@@ -1,4 +1,6 @@
-export const BREAKPOINT_LIST = [
+import { Breakpoint } from '../types/index'
+
+export const BREAKPOINT_LIST: Breakpoint[] = [
     {
         type: 'large',
         deviceType: 'pc',
