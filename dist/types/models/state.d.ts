@@ -1,7 +1,6 @@
-export declare let state: {
-    type: string;
-    deviceType: string;
-    query: string;
-    breakpointList: import("../types").Breakpoint[];
-    check: () => void;
-};
+import { Breakpoint } from '../types/breakpoint';
+export interface State extends Breakpoint {
+    breakpointList: Breakpoint[];
+    check: Function;
+}
+export declare let state: State;

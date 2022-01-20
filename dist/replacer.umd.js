@@ -137,7 +137,17 @@
         });
     }
 
+    function getType() {
+        return state.type;
+    }
+
+    function getState() {
+        return state;
+    }
+
     exports.bind = bind;
+    exports.getState = getState;
+    exports.getType = getType;
     exports.init = init;
 
     Object.defineProperty(exports, '__esModule', { value: true });

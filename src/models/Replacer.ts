@@ -3,7 +3,7 @@ import { state } from './state'
 import { ReplaceTarget } from './ReplaceTarget'
 
 export class Replacer {
-    originSrc: string
+    protected readonly originSrc: string
     node: any
     replaceTargetList: ReplaceTarget[]
 

@@ -131,5 +131,13 @@ function init() {
     });
 }
 
-export { bind, init };
+function getType() {
+    return state.type;
+}
+
+function getState() {
+    return state;
+}
+
+export { bind, getState, getType, init };
 //# sourceMappingURL=replacer.es.js.map
