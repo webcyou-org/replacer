@@ -24,7 +24,7 @@ export class Replacer {
         state.check();
 
         this.replaceTargetList.forEach((replaceTarget: ReplaceTarget) => {
-            if (replaceTarget.deviceType === state.deviceType && !isChange) {
+            if (replaceTarget.isMatch && !isChange) {
                 this.node.setAttribute('src', replaceTarget.changeSrc)
                 isChange = true
             }
@@ -37,7 +37,7 @@ export class Replacer {
 
     replaceCheck(): void {
         this.replaceTargetList.forEach((replaceTarget: ReplaceTarget) => {
-            if (replaceTarget.deviceType === state.deviceType) {
+            if (replaceTarget.isMatch) {
                 this.node.setAttribute('src', replaceTarget.changeSrc)
             }
         })

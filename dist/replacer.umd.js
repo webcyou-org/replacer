@@ -55,6 +55,9 @@
             this.query = data.query ? data.query : '';
             this.changeSrc = data.changeSrc;
         }
+        get isMatch() {
+            return this.type === state.type || this.deviceType === state.deviceType || this.query === state.query;
+        }
     }
 
     class Replacer {
@@ -76,7 +79,7 @@
             let isChange = false;
             state.check();
             this.replaceTargetList.forEach((replaceTarget) => {
-                if (replaceTarget.deviceType === state.deviceType && !isChange) {
+                if (replaceTarget.isMatch && !isChange) {
                     this.node.setAttribute('src', replaceTarget.changeSrc);
                     isChange = true;
                 }
@@ -87,7 +90,7 @@
         }
         replaceCheck() {
             this.replaceTargetList.forEach((replaceTarget) => {
-                if (replaceTarget.deviceType === state.deviceType) {
+                if (replaceTarget.isMatch) {
                     this.node.setAttribute('src', replaceTarget.changeSrc);
                 }
             });

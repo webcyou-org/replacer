@@ -23,12 +23,16 @@ function replaceImagePath(src, suffix) {
 }
 
 let state = {
+    type: 'large',
     deviceType: 'pc',
+    query: '(min-width: 1201px)',
     breakpointList: BREAKPOINT_LIST,
     check: function () {
         this.breakpointList.forEach(breakpoint => {
             if (window.matchMedia(breakpoint.query).matches) {
+                this.type = breakpoint.type;
                 this.deviceType = breakpoint.deviceType;
+                this.query = breakpoint.query;
             }
         });
     }
@@ -36,12 +40,17 @@ let state = {
 
 class ReplaceTarget {
     type;
+    deviceType;
     query;
     changeSrc;
     constructor(data) {
         this.type = data.type ? data.type : '';
+        this.deviceType = data.type ? data.type : '';
         this.query = data.query ? data.query : '';
         this.changeSrc = data.changeSrc;
+    }
+    get isMatch() {
+        return this.type === state.type || this.deviceType === state.deviceType || this.query === state.query;
     }
 }
 
@@ -64,7 +73,7 @@ class Replacer {
         let isChange = false;
         state.check();
         this.replaceTargetList.forEach((replaceTarget) => {
-            if (replaceTarget.type === state.deviceType && !isChange) {
+            if (replaceTarget.isMatch && !isChange) {
                 this.node.setAttribute('src', replaceTarget.changeSrc);
                 isChange = true;
             }
@@ -75,7 +84,7 @@ class Replacer {
     }
     replaceCheck() {
         this.replaceTargetList.forEach((replaceTarget) => {
-            if (replaceTarget.type === state.deviceType) {
+            if (replaceTarget.isMatch) {
                 this.node.setAttribute('src', replaceTarget.changeSrc);
             }
         });

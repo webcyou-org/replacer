@@ -4,4 +4,5 @@ export declare class ReplaceTarget {
     query?: string;
     changeSrc: string;
     constructor(data: any);
+    get isMatch(): boolean;
 }
