@@ -21,7 +21,7 @@
 ### Multiple changes
 
 ```
-<img data-replace='[{"type":"middle","suffix":"_tab"}, {"type":"small","suffix":"_tab"}]' src="/path/to/cat.png"  />
+<img data-replace='[{"type":"middle","suffix":"_tab"}, {"type":"small","suffix":"_sp"}]' src="/path/to/cat.png"  />
 ```
 
 ## Matching Types
