@@ -1,15 +1,15 @@
-import { Replacer, state } from '../models'
+import { state } from '../models'
 
-export function bind(replacerList: Replacer[]): void {
+export function bind(): void {
     state.breakpointList.forEach(breakpoint => {
-        window.matchMedia(breakpoint.query).addEventListener('change', event => {
-            if (event.matches) {
-                replacerList.forEach(replacer => {
-                    replacer.matchMediaCallback()
-                })
-            }
-        })
+        window.matchMedia(breakpoint.query).addEventListener('change', mediaQueryChangeEvent)
     })
-    // init
-    state.check();
+}
+
+export function mediaQueryChangeEvent(event: any) {
+    if (event.matches) {
+        state.replacerList.forEach(replacer => {
+            replacer.matchMediaCallback()
+        })
+    }
 }

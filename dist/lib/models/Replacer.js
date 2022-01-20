@@ -14,6 +14,7 @@ class Replacer {
         this.replaceTargetList = data.replaceTargetList.map((replaceTarget) => {
             return new ReplaceTarget_1.ReplaceTarget({
                 type: replaceTarget.type,
+                deviceType: replaceTarget.dtype,
                 query: replaceTarget.query,
                 changeSrc: (0, utils_1.replaceImagePath)(data.originSrc, replaceTarget.suffix),
             });
@@ -23,7 +24,7 @@ class Replacer {
         let isChange = false;
         state_1.state.check();
         this.replaceTargetList.forEach((replaceTarget) => {
-            if (replaceTarget.type === state_1.state.deviceType && !isChange) {
+            if (replaceTarget.isMatch && !isChange) {
                 this.node.setAttribute('src', replaceTarget.changeSrc);
                 isChange = true;
             }
@@ -34,7 +35,7 @@ class Replacer {
     }
     replaceCheck() {
         this.replaceTargetList.forEach((replaceTarget) => {
-            if (replaceTarget.type === state_1.state.deviceType) {
+            if (replaceTarget.isMatch) {
                 this.node.setAttribute('src', replaceTarget.changeSrc);
             }
         });

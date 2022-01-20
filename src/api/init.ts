@@ -1,13 +1,11 @@
-import { Replacer } from '../models'
+import { state } from '../models'
 import { createReplacerList } from '../core'
 import { bind } from './bind'
 
 export function init() {
     const images: NodeListOf<HTMLImageElement> = document.querySelectorAll('[data-replace]')
-    let replacerList: Replacer[] = createReplacerList(images)
+    state.setReplacerList(createReplacerList(images));
 
-    bind(replacerList)
-    replacerList.forEach(replacer => {
-        replacer.replaceCheck()
-    })
+    bind();
+    state.init();
 }

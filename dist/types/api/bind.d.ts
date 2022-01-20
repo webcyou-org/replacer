@@ -1,2 +1,2 @@
-import { Replacer } from '../models';
-export declare function bind(replacerList: Replacer[]): void;
+export declare function bind(): void;
+export declare function mediaQueryChangeEvent(event: any): void;

@@ -27,6 +27,10 @@ let state = {
     deviceType: 'pc',
     query: '(min-width: 1201px)',
     breakpointList: BREAKPOINT_LIST,
+    init: function () {
+        this.check();
+        this.replaceCheck();
+    },
     check: function () {
         this.breakpointList.forEach(breakpoint => {
             if (window.matchMedia(breakpoint.query).matches) {
@@ -34,6 +38,15 @@ let state = {
                 this.deviceType = breakpoint.deviceType;
                 this.query = breakpoint.query;
             }
+        });
+    },
+    replacerList: [],
+    setReplacerList: function (replacerList) {
+        this.replacerList = replacerList;
+    },
+    replaceCheck: function () {
+        this.replacerList.forEach(replacer => {
+            replacer.replaceCheck();
         });
     }
 };
@@ -106,27 +119,24 @@ function createReplacerList(images) {
     return replacerList;
 }
 
-function bind(replacerList) {
+function bind() {
     state.breakpointList.forEach(breakpoint => {
-        window.matchMedia(breakpoint.query).addEventListener('change', event => {
-            if (event.matches) {
-                replacerList.forEach(replacer => {
-                    replacer.matchMediaCallback();
-                });
-            }
-        });
+        window.matchMedia(breakpoint.query).addEventListener('change', mediaQueryChangeEvent);
     });
-    // init
-    state.check();
+}
+function mediaQueryChangeEvent(event) {
+    if (event.matches) {
+        state.replacerList.forEach(replacer => {
+            replacer.matchMediaCallback();
+        });
+    }
 }
 
 function init() {
     const images = document.querySelectorAll('[data-replace]');
-    let replacerList = createReplacerList(images);
-    bind(replacerList);
-    replacerList.forEach(replacer => {
-        replacer.replaceCheck();
-    });
+    state.setReplacerList(createReplacerList(images));
+    bind();
+    state.init();
 }
 
 function getType() {
@@ -139,11 +149,9 @@ function getState() {
 
 function eventReset() {
     state.breakpointList.forEach(breakpoint => {
-        // @ts-ignore
-        // tslint:disable-next-line:no-arg
-        window.matchMedia(breakpoint.query).removeEventListener('change', arguments.callee);
+        window.matchMedia(breakpoint.query).removeEventListener('change', mediaQueryChangeEvent);
     });
 }
 
-export { bind, eventReset, getState, getType, init };
+export { bind, eventReset, getState, getType, init, mediaQueryChangeEvent };
 //# sourceMappingURL=replacer.es.js.map
