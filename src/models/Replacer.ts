@@ -13,6 +13,7 @@ export class Replacer {
         this.replaceTargetList = data.replaceTargetList.map((replaceTarget: any) => {
             return new ReplaceTarget({
                 type: replaceTarget.type,
+                deviceType: replaceTarget.dtype,
                 query: replaceTarget.query,
                 changeSrc: replaceImagePath(data.originSrc, replaceTarget.suffix),
             })

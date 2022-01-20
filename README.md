@@ -15,14 +15,21 @@
 ```
 
 ```
-<img data-replace='{"type":"tab","suffix":"_tab"}' src="imgpath/cat.png"  />
+<img data-replace='{"type":"middle","suffix":"_tab"}' src="imgpath/cat.png"  />
 ```
 
 ### Multiple changes
 
 ```
-<img data-replace='[{"type":"tab","suffix":"_tab"}, {"type":"sp","suffix":"_tab"}]' src="imgpath/cat.png"  />
+<img data-replace='[{"type":"middle","suffix":"_tab"}, {"type":"small","suffix":"_tab"}]' src="imgpath/cat.png"  />
 ```
+
+### Device Type
+
+```
+<img data-replace='{"dtype":"tab","suffix":"_tab"}' src="imgpath/cat.png"  />
+```
+
 
 ## Creators
 

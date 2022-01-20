@@ -45,7 +45,7 @@ class ReplaceTarget {
     changeSrc;
     constructor(data) {
         this.type = data.type ? data.type : '';
-        this.deviceType = data.type ? data.type : '';
+        this.deviceType = data.deviceType ? data.deviceType : '';
         this.query = data.query ? data.query : '';
         this.changeSrc = data.changeSrc;
     }
@@ -64,6 +64,7 @@ class Replacer {
         this.replaceTargetList = data.replaceTargetList.map((replaceTarget) => {
             return new ReplaceTarget({
                 type: replaceTarget.type,
+                deviceType: replaceTarget.dtype,
                 query: replaceTarget.query,
                 changeSrc: replaceImagePath(data.originSrc, replaceTarget.suffix),
             });

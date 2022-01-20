@@ -8,7 +8,7 @@ export class ReplaceTarget {
 
     constructor(data: any) {
         this.type = data.type ? data.type : ''
-        this.deviceType = data.type ? data.type : ''
+        this.deviceType = data.deviceType ? data.deviceType : ''
         this.query = data.query ? data.query : ''
         this.changeSrc = data.changeSrc
     }
