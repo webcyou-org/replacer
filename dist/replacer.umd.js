@@ -42,10 +42,12 @@
 
     class ReplaceTarget {
         type;
+        deviceType;
         query;
         changeSrc;
         constructor(data) {
             this.type = data.type ? data.type : '';
+            this.deviceType = data.type ? data.type : '';
             this.query = data.query ? data.query : '';
             this.changeSrc = data.changeSrc;
         }
@@ -70,7 +72,7 @@
             let isChange = false;
             state.check();
             this.replaceTargetList.forEach((replaceTarget) => {
-                if (replaceTarget.type === state.deviceType && !isChange) {
+                if (replaceTarget.deviceType === state.deviceType && !isChange) {
                     this.node.setAttribute('src', replaceTarget.changeSrc);
                     isChange = true;
                 }
@@ -81,7 +83,7 @@
         }
         replaceCheck() {
             this.replaceTargetList.forEach((replaceTarget) => {
-                if (replaceTarget.type === state.deviceType) {
+                if (replaceTarget.deviceType === state.deviceType) {
                     this.node.setAttribute('src', replaceTarget.changeSrc);
                 }
             });
