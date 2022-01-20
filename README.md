@@ -15,13 +15,13 @@
 ```
 
 ```
-<img data-replace='{"type":"middle","suffix":"_tab"}' src="imgpath/cat.png"  />
+<img data-replace='{"type":"middle","suffix":"_tab"}' src="/path/to/cat.png"  />
 ```
 
 ### Multiple changes
 
 ```
-<img data-replace='[{"type":"middle","suffix":"_tab"}, {"type":"small","suffix":"_tab"}]' src="imgpath/cat.png"  />
+<img data-replace='[{"type":"middle","suffix":"_tab"}, {"type":"small","suffix":"_tab"}]' src="/path/to/cat.png"  />
 ```
 
 ## Matching Types
@@ -33,7 +33,7 @@
 - small
 
 ```
-<img data-replace='{"type":"middle","suffix":"_tab"}' src="imgpath/cat.png"  />
+<img data-replace='{"type":"middle","suffix":"_tab"}' src="/path/to/cat.png"  />
 ```
 
 ### Device Type
@@ -43,13 +43,13 @@
 - sp
 
 ```
-<img data-replace='{"dtype":"tab","suffix":"_tab"}' src="imgpath/cat.png"  />
+<img data-replace='{"dtype":"tab","suffix":"_tab"}' src="/path/to/cat.png"  />
 ```
 
 ### Media Queries
 
 ```
-<img data-replace='{"query":"(max-width: 1200px) and (min-width: 769px)","suffix":"_tab"}' src="imgpath/cat.png"  />
+<img data-replace='{"query":"(max-width: 1200px) and (min-width: 769px)","suffix":"_tab"}' src="/path/to/cat.png"  />
 ```
 
 ## Creators
