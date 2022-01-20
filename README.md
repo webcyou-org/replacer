@@ -3,6 +3,7 @@
   <p>
     <strong>Changing image paths with Media Queries.</strong>
   </p>
+  <img src="https://user-images.githubusercontent.com/1584153/150440375-4fe7996e-18d7-4a1e-8e8b-fea585911e09.gif" />
 </div>
 
 ## Usage
