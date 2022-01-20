@@ -1,11 +1,9 @@
 <div align="center">
-  <h1><code>Replacer</code></h1>
+  <h1><img src="https://user-images.githubusercontent.com/1584153/150356282-e2c68c9d-910f-45b5-844e-2c91535dbe50.png" /></h1>
   <p>
     <strong>Changing image paths with Media Queries.</strong>
   </p>
 </div>
-
-![replacer](https://user-images.githubusercontent.com/1584153/150356282-e2c68c9d-910f-45b5-844e-2c91535dbe50.png)
 
 ## Usage
 
