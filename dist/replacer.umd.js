@@ -112,8 +112,6 @@
         return replacerList;
     }
 
-    // eventReset
-    // bind
     function bind(replacerList) {
         state.breakpointList.forEach(breakpoint => {
             window.matchMedia(breakpoint.query).addEventListener('change', event => {
@@ -145,7 +143,16 @@
         return state;
     }
 
+    function eventReset() {
+        state.breakpointList.forEach(breakpoint => {
+            // @ts-ignore
+            // tslint:disable-next-line:no-arg
+            window.matchMedia(breakpoint.query).removeEventListener('change', arguments.callee);
+        });
+    }
+
     exports.bind = bind;
+    exports.eventReset = eventReset;
     exports.getState = getState;
     exports.getType = getType;
     exports.init = init;

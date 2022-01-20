@@ -106,8 +106,6 @@ function createReplacerList(images) {
     return replacerList;
 }
 
-// eventReset
-// bind
 function bind(replacerList) {
     state.breakpointList.forEach(breakpoint => {
         window.matchMedia(breakpoint.query).addEventListener('change', event => {
@@ -139,5 +137,13 @@ function getState() {
     return state;
 }
 
-export { bind, getState, getType, init };
+function eventReset() {
+    state.breakpointList.forEach(breakpoint => {
+        // @ts-ignore
+        // tslint:disable-next-line:no-arg
+        window.matchMedia(breakpoint.query).removeEventListener('change', arguments.callee);
+    });
+}
+
+export { bind, eventReset, getState, getType, init };
 //# sourceMappingURL=replacer.es.js.map
