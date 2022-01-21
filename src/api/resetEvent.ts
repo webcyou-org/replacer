@@ -1,5 +1,5 @@
 import { state } from '../models'
-import { mediaQueryChangeEvent } from './addEvent'
+import { mediaQueryChangeEvent } from '../core'
 
 export function resetEvent(): void {
     state.breakpointList.forEach(breakpoint => {

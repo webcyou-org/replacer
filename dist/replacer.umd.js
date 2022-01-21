@@ -137,17 +137,18 @@
         return replacerList;
     }
 
-    function addEvent() {
-        state.breakpointList.forEach(breakpoint => {
-            window.matchMedia(breakpoint.query).addEventListener('change', mediaQueryChangeEvent);
-        });
-    }
     function mediaQueryChangeEvent(event) {
         if (event.matches) {
             state.replacerList.forEach(replacer => {
                 replacer.matchMediaCallback();
             });
         }
+    }
+
+    function addEvent() {
+        state.breakpointList.forEach(breakpoint => {
+            window.matchMedia(breakpoint.query).addEventListener('change', mediaQueryChangeEvent);
+        });
     }
 
     function init() {
@@ -192,7 +193,6 @@
     exports.isMatch = isMatch;
     exports.isQuery = isQuery;
     exports.isType = isType;
-    exports.mediaQueryChangeEvent = mediaQueryChangeEvent;
     exports.resetEvent = resetEvent;
 
     Object.defineProperty(exports, '__esModule', { value: true });

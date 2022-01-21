@@ -131,17 +131,18 @@ function createReplacerList(images) {
     return replacerList;
 }
 
-function addEvent() {
-    state.breakpointList.forEach(breakpoint => {
-        window.matchMedia(breakpoint.query).addEventListener('change', mediaQueryChangeEvent);
-    });
-}
 function mediaQueryChangeEvent(event) {
     if (event.matches) {
         state.replacerList.forEach(replacer => {
             replacer.matchMediaCallback();
         });
     }
+}
+
+function addEvent() {
+    state.breakpointList.forEach(breakpoint => {
+        window.matchMedia(breakpoint.query).addEventListener('change', mediaQueryChangeEvent);
+    });
 }
 
 function init() {
@@ -178,5 +179,5 @@ function isQuery(query) {
     return state.isQuery(query);
 }
 
-export { addEvent, getState, getType, init, isDeviceType, isMatch, isQuery, isType, mediaQueryChangeEvent, resetEvent };
+export { addEvent, getState, getType, init, isDeviceType, isMatch, isQuery, isType, resetEvent };
 //# sourceMappingURL=replacer.es.js.map
