@@ -48,6 +48,18 @@ let state = {
         this.replacerList.forEach(replacer => {
             replacer.replaceCheck();
         });
+    },
+    isMatch: function (context) {
+        return this.type === context || this.deviceType === context || this.query === context;
+    },
+    isType: function (type) {
+        return this.type === type;
+    },
+    isDeviceType: function (deviceType) {
+        return this.deviceType === deviceType;
+    },
+    isQuery: function (query) {
+        return this.query === query;
     }
 };
 
@@ -153,5 +165,18 @@ function eventReset() {
     });
 }
 
-export { bind, eventReset, getState, getType, init, mediaQueryChangeEvent };
+function isMatch(context) {
+    return state.isMatch(context);
+}
+function isType(type) {
+    return state.isType(type);
+}
+function isDeviceType(deviceType) {
+    return state.isDeviceType(deviceType);
+}
+function isQuery(query) {
+    return state.isQuery(query);
+}
+
+export { bind, eventReset, getState, getType, init, isDeviceType, isMatch, isQuery, isType, mediaQueryChangeEvent };
 //# sourceMappingURL=replacer.es.js.map

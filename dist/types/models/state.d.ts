@@ -7,5 +7,9 @@ export interface State extends Breakpoint {
     check: Function;
     setReplacerList: Function;
     replaceCheck: Function;
+    isMatch: Function;
+    isType: Function;
+    isDeviceType: Function;
+    isQuery: Function;
 }
 export declare let state: State;

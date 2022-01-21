@@ -54,6 +54,18 @@
             this.replacerList.forEach(replacer => {
                 replacer.replaceCheck();
             });
+        },
+        isMatch: function (context) {
+            return this.type === context || this.deviceType === context || this.query === context;
+        },
+        isType: function (type) {
+            return this.type === type;
+        },
+        isDeviceType: function (deviceType) {
+            return this.deviceType === deviceType;
+        },
+        isQuery: function (query) {
+            return this.query === query;
         }
     };
 
@@ -159,11 +171,28 @@
         });
     }
 
+    function isMatch(context) {
+        return state.isMatch(context);
+    }
+    function isType(type) {
+        return state.isType(type);
+    }
+    function isDeviceType(deviceType) {
+        return state.isDeviceType(deviceType);
+    }
+    function isQuery(query) {
+        return state.isQuery(query);
+    }
+
     exports.bind = bind;
     exports.eventReset = eventReset;
     exports.getState = getState;
     exports.getType = getType;
     exports.init = init;
+    exports.isDeviceType = isDeviceType;
+    exports.isMatch = isMatch;
+    exports.isQuery = isQuery;
+    exports.isType = isType;
     exports.mediaQueryChangeEvent = mediaQueryChangeEvent;
 
     Object.defineProperty(exports, '__esModule', { value: true });

@@ -1,6 +1,7 @@
 import { BREAKPOINT_LIST } from '../utils/const'
 import { Breakpoint } from '../types/breakpoint'
 import { Replacer } from '../models'
+import { isDeviceType, isQuery, isType } from '../api'
 
 export interface State extends Breakpoint {
     breakpointList: Breakpoint[];
@@ -9,6 +10,10 @@ export interface State extends Breakpoint {
     check: Function;
     setReplacerList: Function;
     replaceCheck: Function;
+    isMatch: Function;
+    isType: Function;
+    isDeviceType: Function;
+    isQuery: Function;
 }
 
 export let state: State = {
@@ -37,5 +42,17 @@ export let state: State = {
         this.replacerList.forEach(replacer => {
             replacer.replaceCheck();
         })
+    },
+    isMatch: function(context: string): boolean {
+        return this.type === context || this.deviceType === context || this.query === context;
+    },
+    isType: function(type: string): boolean {
+        return this.type === type;
+    },
+    isDeviceType: function(deviceType: string): boolean {
+        return this.deviceType === deviceType;
+    },
+    isQuery: function(query: string): boolean {
+        return this.query === query;
     }
 }
