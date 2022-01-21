@@ -137,7 +137,7 @@
         return replacerList;
     }
 
-    function bind() {
+    function addEvent() {
         state.breakpointList.forEach(breakpoint => {
             window.matchMedia(breakpoint.query).addEventListener('change', mediaQueryChangeEvent);
         });
@@ -153,7 +153,7 @@
     function init() {
         const images = document.querySelectorAll('[data-replace]');
         state.setReplacerList(createReplacerList(images));
-        bind();
+        addEvent();
         state.init();
     }
 
@@ -165,7 +165,7 @@
         return state;
     }
 
-    function eventReset() {
+    function resetEvent() {
         state.breakpointList.forEach(breakpoint => {
             window.matchMedia(breakpoint.query).removeEventListener('change', mediaQueryChangeEvent);
         });
@@ -184,8 +184,7 @@
         return state.isQuery(query);
     }
 
-    exports.bind = bind;
-    exports.eventReset = eventReset;
+    exports.addEvent = addEvent;
     exports.getState = getState;
     exports.getType = getType;
     exports.init = init;
@@ -194,6 +193,7 @@
     exports.isQuery = isQuery;
     exports.isType = isType;
     exports.mediaQueryChangeEvent = mediaQueryChangeEvent;
+    exports.resetEvent = resetEvent;
 
     Object.defineProperty(exports, '__esModule', { value: true });
 

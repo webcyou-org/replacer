@@ -10,4 +10,4 @@ function eventReset() {
     });
 }
 exports.eventReset = eventReset;
-//# sourceMappingURL=eventReset.js.map
+//# sourceMappingURL=resetEvent.js.map

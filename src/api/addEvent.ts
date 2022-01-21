@@ -1,6 +1,6 @@
 import { state } from '../models'
 
-export function bind(): void {
+export function addEvent(): void {
     state.breakpointList.forEach(breakpoint => {
         window.matchMedia(breakpoint.query).addEventListener('change', mediaQueryChangeEvent)
     })

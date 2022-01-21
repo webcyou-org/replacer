@@ -16,4 +16,4 @@ function bind(replacerList) {
     models_1.state.check();
 }
 exports.bind = bind;
-//# sourceMappingURL=bind.js.map
+//# sourceMappingURL=addEvent.js.map

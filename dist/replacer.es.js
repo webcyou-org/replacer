@@ -131,7 +131,7 @@ function createReplacerList(images) {
     return replacerList;
 }
 
-function bind() {
+function addEvent() {
     state.breakpointList.forEach(breakpoint => {
         window.matchMedia(breakpoint.query).addEventListener('change', mediaQueryChangeEvent);
     });
@@ -147,7 +147,7 @@ function mediaQueryChangeEvent(event) {
 function init() {
     const images = document.querySelectorAll('[data-replace]');
     state.setReplacerList(createReplacerList(images));
-    bind();
+    addEvent();
     state.init();
 }
 
@@ -159,7 +159,7 @@ function getState() {
     return state;
 }
 
-function eventReset() {
+function resetEvent() {
     state.breakpointList.forEach(breakpoint => {
         window.matchMedia(breakpoint.query).removeEventListener('change', mediaQueryChangeEvent);
     });
@@ -178,5 +178,5 @@ function isQuery(query) {
     return state.isQuery(query);
 }
 
-export { bind, eventReset, getState, getType, init, isDeviceType, isMatch, isQuery, isType, mediaQueryChangeEvent };
+export { addEvent, getState, getType, init, isDeviceType, isMatch, isQuery, isType, mediaQueryChangeEvent, resetEvent };
 //# sourceMappingURL=replacer.es.js.map
