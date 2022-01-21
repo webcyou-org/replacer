@@ -32,7 +32,7 @@ export class Replacer {
         })
 
         if (!isChange) {
-            this.node.src = this.originSrc
+            this.node.setAttribute('src', this.originSrc)
         }
     }
 
