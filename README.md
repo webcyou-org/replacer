@@ -53,6 +53,26 @@
 <img data-replace='{"query":"(max-width: 1200px) and (min-width: 769px)","suffix":"_tab"}' src="/path/to/cat.png"  />
 ```
 
+## Default BreakPoint
+
+```
+{
+    type: 'large',
+    deviceType: 'pc',
+    query: '(min-width: 1201px)'
+},
+{
+    type: 'middle',
+    deviceType: 'tab',
+    query: '(max-width: 1200px) and (min-width: 769px)'
+},
+{
+    type: 'small',
+    deviceType: 'sp',
+    query: '(max-width: 768px)'
+}
+```
+
 ## Creators
 
 **Daisuke Takayama**
