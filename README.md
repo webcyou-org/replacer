@@ -73,6 +73,10 @@
 }
 ```
 
+## Message
+
+This is a library that replaces images based on Media Query breakpoints, but I don't think this kind of image replacement is good for responsive design.
+Please use this library when you have no choice but to use it.
 ## Public Function
 
 | Function Name  | Argument                   | Argument Type  | return  | Details                                | 
