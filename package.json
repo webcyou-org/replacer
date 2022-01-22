@@ -1,5 +1,5 @@
 {
-    "name": "replacer",
+    "name": "@webcyou-org/replacer",
     "version": "0.0.1",
     "description": "Changing image paths with Media Queries.",
     "keywords": ["mediaquery", "attribute", "change"],
