@@ -73,6 +73,20 @@
 }
 ```
 
+## Public Function
+
+| Function Name  | Argument                   | Argument Type  | return  | Details                                | 
+| -------------- |:--------------------------:|:--------------:| ------- | -------------------------------------- |
+| init           |                            | null           | void    | initialization                         |
+| addEvent       |                            | null           | void    | Add change event for MediaQueryList    |
+| resetEvent     |                            | null           | void    | Remove change event for MediaQueryList |
+| getState       |                            | null           | State   | Get current state                      |
+| getType        |                            | string         | string  | Get current type                       |
+| isMatch        | type, deviceType, query    | string         | boolean | Verify MediaQueryList matches.         |
+| isType         | 'small', 'middle', 'large' | string         | boolean | Verify MediaQueryList matches.         |
+| isDeviceType   | 'sp', 'tab', 'pc'          | string         | boolean | Verify MediaQueryList matches.         |
+| isQuery        | media query                | string         | boolean | Verify MediaQueryList matches.         |
+
 ## Creators
 
 **Daisuke Takayama**
