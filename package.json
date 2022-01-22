@@ -1,6 +1,6 @@
 {
     "name": "@webcyou-org/replacer",
-    "version": "0.0.3",
+    "version": "0.1.0",
     "description": "Changing image paths with Media Queries.",
     "keywords": ["mediaquery", "attribute", "change"],
     "main": "dist/replacer.umd.js",
