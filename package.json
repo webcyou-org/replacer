@@ -1,8 +1,8 @@
 {
     "name": "replacer",
     "version": "0.0.1",
-    "description": "",
-    "keywords": [],
+    "description": "Changing image paths with Media Queries.",
+    "keywords": ["mediaquery", "attribute", "change"],
     "main": "dist/replacer.umd.js",
     "module": "dist/replacer.es.js",
     "typings": "dist/types/replacer.d.ts",
@@ -16,7 +16,7 @@
     },
     "license": "MIT",
     "engines": {
-        "node": ">=6.0.0"
+        "node": ">=12.0.0"
     },
     "scripts": {
         "lint": "tslint  --project tsconfig.json -t codeFrame 'src/**/*.ts' 'test/**/*.ts'",
