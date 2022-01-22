@@ -1,7 +1,6 @@
 import { BREAKPOINT_LIST } from '../utils/const'
 import { Breakpoint } from '../types/breakpoint'
 import { Replacer } from '../models'
-import { isDeviceType, isQuery, isType } from '../api'
 
 export interface State extends Breakpoint {
     breakpointList: Breakpoint[];
