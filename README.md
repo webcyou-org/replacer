@@ -87,6 +87,32 @@
 | isDeviceType   | 'sp', 'tab', 'pc'          | string         | boolean | Verify MediaQueryList matches.         |
 | isQuery        | media query                | string         | boolean | Verify MediaQueryList matches.         |
 
+## Optional
+
+Using Custom BreakPoint
+
+```
+<script>
+    replacer.init([
+        {
+            type: 'large',
+            deviceType: 'pc',
+            query: '(min-width: 1201px)'
+        },
+        {
+            type: 'middle',
+            deviceType: 'tab',
+            query: '(max-width: 1200px) and (min-width: 769px)'
+        },
+        {
+            type: 'small',
+            deviceType: 'sp',
+            query: '(max-width: 768px)'
+        }]
+    );
+</script>
+```
+
 ## Message
 
 This is a library that replaces images based on Media Query breakpoints, but I don't think this kind of image replacement is good for responsive design.

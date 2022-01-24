@@ -50,6 +50,12 @@
         setReplacerList: function (replacerList) {
             this.replacerList = replacerList;
         },
+        setBreakpointList: function (breakpointList) {
+            this.breakpointList = breakpointList;
+            this.type = breakpointList[0].type;
+            this.deviceType = breakpointList[0].deviceType;
+            this.query = breakpointList[0].query;
+        },
         replaceCheck: function () {
             this.replacerList.forEach(replacer => {
                 replacer.replaceCheck();
@@ -111,7 +117,7 @@
                 }
             });
             if (!isChange) {
-                this.node.src = this.originSrc;
+                this.node.setAttribute('src', this.originSrc);
             }
         }
         replaceCheck() {
@@ -151,7 +157,10 @@
         });
     }
 
-    function init() {
+    function init(option) {
+        if (option) {
+            state.setBreakpointList(Array.isArray(option) ? option : [option]);
+        }
         const images = document.querySelectorAll('[data-replace]');
         state.setReplacerList(createReplacerList(images));
         addEvent();

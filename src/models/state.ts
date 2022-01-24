@@ -8,6 +8,7 @@ export interface State extends Breakpoint {
     init: Function;
     check: Function;
     setReplacerList: Function;
+    setBreakpointList: Function;
     replaceCheck: Function;
     isMatch: Function;
     isType: Function;
@@ -36,6 +37,12 @@ export let state: State = {
     replacerList: [],
     setReplacerList: function(replacerList: Replacer[]): void {
         this.replacerList = replacerList;
+    },
+    setBreakpointList: function(breakpointList: Breakpoint[]) {
+        this.breakpointList = breakpointList;
+        this.type = breakpointList[0].type;
+        this.deviceType = breakpointList[0].deviceType;
+        this.query = breakpointList[0].query;
     },
     replaceCheck: function(): void {
         this.replacerList.forEach(replacer => {

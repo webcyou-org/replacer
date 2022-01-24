@@ -1,1 +1,1 @@
-export declare function init(): void;
+export declare function init(option?: any): void;

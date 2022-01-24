@@ -6,6 +6,7 @@ export interface State extends Breakpoint {
     init: Function;
     check: Function;
     setReplacerList: Function;
+    setBreakpointList: Function;
     replaceCheck: Function;
     isMatch: Function;
     isType: Function;

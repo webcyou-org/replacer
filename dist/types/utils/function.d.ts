@@ -1,1 +1,1 @@
-export declare function replaceImagePath(src: any, suffix: string): string;
+export declare function replaceImagePath(src: string, suffix: string): string;
